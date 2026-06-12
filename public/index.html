@@ -926,12 +926,12 @@ async function askNext() {
   try {
     const isFirst = chatHistory.length === 0;
 
-    // Build Groq messages
-    const msgs = [{ role: 'system', content: buildSystem() }];
+    // Build messages array for backend
+    let msgs = [];
     if (isFirst) {
-      msgs.push({ role: 'user', content: `Start the ${curSubject} interview. Ask your first question now.` });
+      msgs = [{ role: 'user', content: `Start the ${curSubject} interview. Ask your first question now.` }];
     } else {
-      chatHistory.forEach(m => msgs.push({
+      msgs = chatHistory.map(m => ({
         role: m.role === 'ai' ? 'assistant' : 'user',
         content: m.content
       }));
