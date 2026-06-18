@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-
+console.log(apiKey);
 const GROQ_KEY = const apiKey = process.env.OPENAI_API_KEY;
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
