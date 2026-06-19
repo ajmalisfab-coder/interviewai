@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-console.log(apiKey);
-const GROQ_KEY = const apiKey = process.env.OPENAI_API_KEY;
 
+const GROQ_KEY = process.env.GROQ_API_KEY || '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';
+const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 app.post('/api/chat', async (req, res) => {
   try {
@@ -80,3 +80,4 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`InterviewAI server running on port ${PORT}`);
 });
+
